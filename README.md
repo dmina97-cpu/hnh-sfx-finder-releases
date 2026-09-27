@@ -1,104 +1,253 @@
-# hnh-sfx-finder-releases
-Bản phát hành HNH SFX Finder cho DaVinci Resolve Studio
-Plugin giúp quản lí, tìm, nghe thử và chèn sound effect, video, hình ảnh từ thư viện trên máy vào timeline Resolve. Tìm nhanh bằng tiếng Việt hoặc tiếng Anh, quản lý tags và Favorites ngay trong một cửa sổ.
+# HNH SFX Finder
 
-Anh em cần hỏi cách dùng, báo lỗi hoặc muốn góp ý thêm tính năng thì nhắn Zalo cho mình nhé.
+**Local SFX Browser & Workflow Tool for DaVinci Resolve**
+<img width="1020" height="806" alt="image" src="https://github.com/user-attachments/assets/2046c6b2-2347-4115-84b9-993d007d3161" />
 
-Mới: Tab Hình ảnh và Video
-Ba tab Âm thanh, Hình ảnh và Video dùng chung thư viện, tags và Favorites. Thêm folder trong Thư viện; mỗi tab chỉ hiện đúng loại tài nguyên. Tags/Favorites của ảnh và video cũng được xuất/nhập cùng bản sao lưu.
+HNH SFX Finder giúp tìm kiếm, nghe thử và đưa Sound Effect vào DaVinci Resolve nhanh hơn, đặc biệt hữu ích khi làm việc với thư viện SFX lớn.
 
-Trong tab Hình ảnh hoặc Video, tìm theo tên/folder/tags, chọn folder từ danh sách hoặc lọc Yêu thích/Gần đây. Kết quả chia trang để thư viện lớn vẫn nhẹ. Chọn một thẻ để xem preview; thumbnail được tạo khi thẻ xuất hiện trên màn hình và lưu cache cục bộ.
+Thay vì phải mở từng thư mục để tìm và nghe file:
 
-Ảnh: chọn thời lượng bằng giây, chọn track V1/V2… rồi Chèn tại Playhead. Nếu Resolve nhận các ảnh đánh số thành image sequence, bật Show Individual Frames trong Media Storage và import lại ảnh riêng.
+**Search → Preview → Insert / Drag to Timeline**
 
-Video: dùng player để xem/tua; nút In/Out lấy vị trí đang xem, hoặc nhập giây và bật Chèn đoạn In/Out. Toàn bộ bỏ vùng chọn. Mặc định chèn phần hình. Bật Kèm âm thanh & liên kết clip, chọn audio track A1/A2… để lấy cả tiếng; cả hai dùng chung In/Out và vị trí playhead. Cần vùng trống trên cả hai track. Hỗ trợ một track âm thanh nguồn nhúng trong video; nguồn nhiều track hoặc audio liên kết ngoài cần xử lý trong Resolve. Nếu lỗi sau khi chèn, plugin thử gỡ các clip vừa tạo và báo kết quả; kiểm tra timeline nếu thông báo chưa gỡ được.
+Toàn bộ thư viện được xử lý **local trên máy**, không cần tải SFX lên cloud.
 
-Nút Tải lại track đọc timeline đang mở. Track khóa không được chọn; cần có track video trên timeline. Ảnh/video lỗi preview do codec vẫn có thể thử Import hoặc chèn bằng Resolve. Khả năng nhập phụ thuộc định dạng được Resolve hỗ trợ; plugin không chuyển mã.
+---
 
-Chọn loại tài nguyên cho từng thư mục
-Khi thêm folder, tích Âm thanh, Hình ảnh hoặc Video (có thể chọn nhiều loại). Mặc định theo tab đang mở. Trong Thư viện, bấm Loại quét cạnh folder để sửa và quét lại. Folder cũ chưa có lựa chọn vẫn quét cả ba loại như trước.
+## Phiên bản hỗ trợ
 
-Bỏ một loại chỉ bỏ khỏi index. Tags/Favorites vẫn giữ và xuất hiện lại khi bật loại đó rồi quét. Nếu các thư viện lồng nhau, một file vẫn hiện khi được ít nhất một folder cho phép quét. Giới hạn loại giúp giảm đọc thông tin và kích thước index, nhưng vẫn cần duyệt cây folder.
+| Hệ điều hành | DaVinci Resolve | Phiên bản HNH | Cách hoạt động |
+|---|---|---|---|
+| Windows | Studio | HNH SFX Finder Studio | Workflow Integration |
+| Windows | Free | HNH SFX Finder Free | Companion App |
+| macOS Apple Silicon | Studio | HNH SFX Finder Studio | Workflow Integration |
 
-Ngày thêm, lọc nhanh và danh sách tags
-Ngày thêm là lần đầu plugin ghi nhận đường dẫn file, không phải ngày tạo hoặc ngày sửa file trên ổ đĩa. File mới được ghi nhận từ bản 0.7.2; file cũ không có dữ liệu ngày sẽ hiện Chưa rõ ngày thêm. Quét lại, sửa nội dung hoặc tắt/bật loại quét không làm đổi ngày đã ghi nhận.
+> Bản Free sử dụng ứng dụng companion độc lập và Native Drag & Drop thay cho Workflow Integration.
 
-Chọn Hôm nay, 7 ngày qua (hôm nay và 6 ngày trước), Khoảng ngày hoặc Chưa rõ ngày thêm. Các mốc dùng ngày trên máy; khoảng ngày bao gồm cả ngày kết thúc. Rê chuột vào tên/thẻ file để xem thời điểm cụ thể. Bản sao lưu mới giữ ngày khi chuyển sang thư viện mới.
+---
 
-Danh sách tags hiển thị nhãn đã gắn và số file của loại tài nguyên đang mở, không phụ thuộc bộ lọc ngày/search. Chọn tag để lọc. Nếu chưa có tag, chọn file → nhập các tag cách nhau bằng dấu phẩy → Lưu tags. Bỏ lọc ngày / tag không xóa tags đã lưu.
+# Tính năng nổi bật
 
-Chọn nhiều file: tags và Favorites
-Bấm Chọn nhiều rồi tích checkbox cạnh các file. Chọn các file đang hiện áp dụng cho trang hiện tại (SFX tối đa 500 kết quả). Có thể chọn tiếp ở trang khác; đổi tab sẽ bỏ chọn, đổi bộ lọc sẽ bỏ các lựa chọn không còn khớp.
+### Tìm kiếm & quản lý thư viện
 
-Nhập tags cách nhau bằng dấu phẩy rồi Thêm tag hoặc Xóa tag. Thêm tag giữ các tags cũ; Xóa tag chỉ xóa nhãn đã nhập, không xóa file. Thêm/Bỏ yêu thích áp dụng cho các file đã chọn. Tối đa 30 tags mỗi file. Dữ liệu được giữ trong bản sao lưu như chỉnh từng file.
+- Tìm kiếm nhanh trong toàn bộ thư viện SFX local.
+- Quét nhiều folder và subfolder.
+- Smart Search hỗ trợ từ khóa Việt / Anh.
+- Quản lý nhiều thư viện cùng lúc.
+- Theo dõi thay đổi khi thêm hoặc xóa file.
+- Favorites và Recent.
+- Tag và metadata.
+- Bộ lọc theo loại media, thời lượng và thuộc tính.
+- Backup / Restore dữ liệu thư viện.
 
-Sidebar Tags và thêm tag nhanh
-Bắt đầu trong 1 phút
-Mở Thư viện → + Thêm thư mục, chọn folder chứa SFX. Plugin đọc cả thư mục con.
-Gõ từ khóa, ví dụ whoosh nhanh hoặc tiếng kim loại. Chọn một kết quả rồi bấm Preview để nghe thử.
-Trong Resolve, mở project và timeline, đặt playhead tại vị trí cần chèn.
-Chọn audio track trong plugin, rồi bấm Insert tại Playhead. Nếu chỉ cần đưa file vào Media Pool, bấm Import.
-Tìm kiếm, bộ lọc và duyệt folder
-Tìm theo tên file/thư mục, hỗ trợ từ khóa Việt–Anh và tìm gần đúng. Các nút Whoosh, Impact, UI, Riser… giúp tìm nhanh theo nhóm.
+### Preview
 
-Kết hợp bộ lọc định dạng, thư viện, tags và thời lượng Từ–Đến (giây). File chưa xác định thời lượng có thể chưa xuất hiện khi đang lọc thời lượng.
+- Nghe SFX trực tiếp trước khi sử dụng.
+- Hiển thị waveform.
+- Waveform Cache giúp tải lại nhanh hơn.
+- Không cần import vào Resolve chỉ để nghe thử.
 
-Bật Duyệt thư mục để xem cây folder. Bấm tên folder để lọc cả thư mục con; bấm mũi tên để mở nhánh. Tất cả SFX bỏ lọc folder, các bộ lọc khác vẫn giữ. Ẩn bảng folder không tự bỏ lọc.
+### Media
 
-Nút Tương tự tìm các sound gần loại theo từ khóa của file đang chọn; đây không phải so sánh nội dung âm thanh. Mở thư mục hoặc chuột phải kết quả để tìm file trong Explorer.
+HNH SFX Finder không chỉ được thiết kế cho SFX mà còn có khả năng quản lý:
 
-Chèn nhạc vào In/Out Timeline
-Đánh I và O trên timeline Resolve. Trong tab Âm thanh, chọn file và track A đích, đổi Chèn theo thành In/Out Timeline. Plugin đọc vùng khi quay lại cửa sổ; nút Đọc lại I/O cập nhật thủ công. Khi bấm chèn, vùng được đọc lại từ Resolve, không phụ thuộc playhead.
+- Audio
+- Image
+- Video
 
-Điểm In trong plugin là điểm bắt đầu lấy nhạc (mặc định 0 giây); độ dài lấy từ timeline. Điểm Out của nhạc vẫn dùng nghe thử, không giới hạn vùng chèn này. Nhạc thiếu thời lượng sẽ báo lỗi, chưa tự lặp/kéo giãn. Track phải mở khóa, trống trong vùng I/O và chừa 2 frame sau Out để tránh va chạm do làm tròn. Hỗ trợ một track audio nguồn; mapping nhiều track hoặc audio liên kết ngoài cần xử lý trong Resolve.
+---
 
-Ưu tiên dấu audio; nếu không có dấu audio thì dùng dấu video. Nếu thiếu một mốc, cần đánh đủ I/O. Plugin khôi phục dấu sau chèn; nếu bạn đổi dấu trong lúc chèn sẽ giữ dấu mới. Sai số làm tròn tối đa 2 frame được báo, sai lệch lớn hơn sẽ thử gỡ clip mới. Bản Resolve thiếu API sẽ báo rõ; vẫn dùng Playhead như trước.
+# DaVinci Resolve Studio
 
-Preview, waveform, In/Out và âm lượng
-Bấm Preview hoặc nút ▶ ở kết quả để nghe/dừng. Bật Auto preview để nghe khi chuyển lựa chọn. Waveform cho phép bấm để tua.
+Bản Studio sử dụng **Workflow Integration** để giao tiếp trực tiếp với DaVinci Resolve.
 
-Tua tới điểm bắt đầu rồi bấm In [I], tua tới điểm kết thúc rồi bấm Out [O]; cũng có thể nhập thời gian bằng giây. Điểm Out phải lớn hơn In và nằm trong thời lượng file.
+### Tính năng bổ sung
 
-Bật Lặp đoạn để nghe lặp vùng chọn. Khi có vùng In/Out, nút chèn đổi thành Insert đoạn chọn. Bấm Toàn bộ để bỏ vùng chọn. Import vẫn đưa file gốc vào Media Pool.
+- Insert at Playhead.
+- Chọn Audio Track A1 / A2 / A3...
+- Tìm track trống trước khi insert.
+- Hạn chế chèn đè lên audio đang có.
+- Hỗ trợ chọn hoặc tạo track phù hợp.
+- Các công cụ Timeline Range và audio workflow.
+- Import media trực tiếp vào Resolve.
 
-Âm lượng nghe thử và Tắt tiếng chỉ điều khiển preview trong plugin, không thay đổi file nguồn hoặc âm lượng clip trên timeline.
+### Workflow
 
-Tags, Favorites và Recent
-Chọn một SFX → nhập tag vào ô Tag cho SFX đang chọn, cách nhau bằng dấu phẩy → bấm Lưu tags. Ví dụ: chuyển cảnh, nhanh, yêu thích. Muốn sửa/xóa tag thì chỉnh danh sách rồi lưu lại.
+```text
+Search
+   ↓
+Preview
+   ↓
+Select Track
+   ↓
+Insert at Playhead
 
-Bật Hiện tag cạnh tên SFX để xem nhãn trong kết quả. Dùng ô Lọc tag để tìm theo tag.
+DaVinci Resolve Free
+DaVinci Resolve Free không sử dụng phiên bản Workflow Integration của HNH.
+Thay vào đó, HNH SFX Finder Free chạy như một ứng dụng companion độc lập bên cạnh Resolve.
+Workflow
+HNH SFX Finder Free
+        ↓
+      Search
+        ↓
+      Preview
+        ↓
+  Native Drag & Drop
+        ↓
+Media Pool / Timeline
 
-Bấm ngôi sao cạnh file để thêm/bỏ Favorites, rồi chọn ★ Yêu thích để xem. Gần đây giúp tìm lại các file đã dùng. Tags và Favorites lưu trong dữ liệu plugin, không ghi vào file âm thanh gốc.
+Bạn có thể tìm và nghe SFX trong HNH, sau đó kéo file trực tiếp vào:
+- Media Pool
+- Audio Track trên Timeline
+Portable EXE
+Bản Windows Free được đóng gói thành một file:
+HNH_SFX_Finder_Free_v0.9.0_x64.exe
 
-Smart Collections — lưu bộ lọc thường dùng
-Đặt từ khóa, folder và các bộ lọc cần dùng → nhập Tên bộ lọc để lưu → bấm Lưu bộ lọc. Chọn lại trong Smart Collections để áp dụng.
+Không cần cài:
+- Node.js
+- npm
+- WorkflowIntegration.node
+- Workflow Integration Plugin
+Chỉ cần mở EXE và sử dụng.
+Cài đặt
+Windows + DaVinci Resolve Studio
+1. Giải nén HNH SFX Finder
+Không chạy plugin trực tiếp trong file ZIP.
+2. Chạy installer
+install_windows.bat
 
-Khi đang chọn một bộ lọc đã lưu, bấm Lưu bộ lọc sẽ cập nhật bộ đó. Muốn tạo bộ mới, chọn dòng Smart Collections trống trước. Xóa bộ lọc chỉ xóa bộ lọc đã lưu, không xóa SFX.
+3. Khởi động lại DaVinci Resolve
+Mở:
+Workspace
+→ Workflow Integrations
+→ HNH SFX Finder
 
-Sao lưu và chuyển sang máy khác
-Máy cũ: vào Thư viện → Sao lưu & chuyển thư viện → Xuất bản sao lưu. Có thể chọn kèm waveform cache và Recent/lượt sử dụng.
-Chép file .hnhbackup sang máy mới. Gói chứa index, tags, Favorites, Smart Collections và tùy chọn plugin; không chứa audio, nên cần chép thư viện âm thanh riêng.
-Máy mới: chọn Nhập bản sao lưu. Giữ đường dẫn nếu giống máy cũ, hoặc Chọn thư mục mới cho từng thư viện.
-Bấm Đối chiếu file, xem kết quả và chọn file cho những mục cần xác nhận. File có nội dung giống hệt có thể tự ghép kể cả đổi tên. Chỉ trùng tên hoặc có nhiều bản giống nhau thì cần xác nhận.
-Chọn các tùy chọn muốn nhập rồi bấm Áp dụng — gộp tags và Favorites. Dữ liệu hiện có được gộp.
-File chưa tìm thấy được giữ để Nối lại mục còn thiếu sau khi bổ sung thư viện. Có thể Hoàn tác lần nhập về trạng thái trước nhập; các chỉnh sửa metadata sau lần nhập cũng sẽ được hoàn tác.
+4. Thêm thư viện
+Ví dụ:
+D:\SFX Library
 
-Lần xuất đầu và đối chiếu có thể lâu vì phải đọc nội dung file. File đã chuyển định dạng hoặc chỉnh sửa có thể cần xác nhận. Waveform chỉ khôi phục khi nội dung khớp; audio track và kết nối Resolve trên máy mới được giữ riêng.
+Chỉ cần chọn thư mục gốc.
+HNH sẽ tự quét các thư mục con:
+SFX Library
+├── Whoosh
+├── Impact
+├── Transition
+├── UI
+├── Cinematic
+├── Ambience
+└── Funny
 
-Quét thư viện, cache và kết nối Resolve
-Plugin hiển thị index đã lưu trước, sau đó quét cập nhật trong nền. Lần đầu thêm thư viện cần chờ lập index. Waveform đã có được cache để dùng lại.
+Sau khi index hoàn tất, bạn có thể Search và Preview ngay.
+Windows + DaVinci Resolve Free
+Không cần cài plugin vào DaVinci Resolve.
+Chạy:
+HNH_SFX_Finder_Free_v0.9.0_x64.exe
 
-Hỗ trợ WAV, MP3, FLAC, AIFF/AIF, M4A/AAC và OGG; khả năng nghe thử còn phụ thuộc bộ giải mã. Tự bỏ các file phụ macOS bắt đầu bằng ._.
+Sau đó:
+1. Add SFX Library
+2. Search
+3. Preview
+4. Kéo SFX sang Resolve
 
-Nếu chưa thấy file mới, vào Thư viện và bấm Quét lại. Nếu ổ ngoài chưa kết nối, gắn lại ổ và kiểm tra đường dẫn. Xóa thư viện khỏi danh sách không xóa file trên ổ đĩa.
+Có thể kéo trực tiếp vào:
+Media Pool
 
-Kết nối Resolve tự thử khi mở. Nếu chưa kết nối, bảo đảm Resolve đã mở project/timeline, rồi bấm Kết nối lại Resolve. Bản đóng gói dành cho Resolve Studio 20.2 trên Windows, dùng bridge v2.0.0; phiên bản Resolve khác chưa được xác nhận tương thích.
+hoặc:
+Timeline → A1 / A2 / A3...
 
-Phím tắt
-↑ / ↓: chọn SFX.
-Space: nghe/dừng preview.
-Enter: chèn vào playhead; Ctrl+Enter: import Media Pool.
-I / O: đánh dấu In/Out khi không nhập văn bản.
-Ctrl+F: về ô tìm kiếm.
-Esc: đóng bảng đang mở hoặc xóa tìm kiếm.
-Phím tắt thao tác SFX được tạm ngưng khi đang đọc bảng hướng dẫn này.
+Gợi ý sử dụng
+Nếu có hai màn hình:
+Monitor 1 → DaVinci Resolve
+Monitor 2 → HNH SFX Finder
+
+HNH có thể hoạt động như một SFX Browser riêng trong quá trình dựng.
+macOS Apple Silicon + DaVinci Resolve Studio
+Hỗ trợ máy Mac sử dụng Apple Silicon.
+Ví dụ:
+M1
+M2
+M3
+M4
+
+1. Thoát hoàn toàn DaVinci Resolve
+2. Giải nén HNH SFX Finder
+3. Chạy
+install_macos.command
+
+Nếu macOS chặn lần mở đầu tiên:
+Right Click
+→ Open
+
+Nhập mật khẩu Administrator nếu installer yêu cầu.
+4. Mở DaVinci Resolve Studio
+Vào:
+Workspace
+→ Workflow Integrations
+→ HNH SFX Finder
+
+Library path trên macOS
+Ví dụ thư viện nằm trong máy:
+/Users/username/SFX Library/
+
+Hoặc SSD ngoài:
+/Volumes/SFX SSD/SFX Library/
+
+Nếu chuyển database từ Windows sang macOS, có thể sử dụng Backup / Restore rồi thiết lập lại Library Root theo đường dẫn mới.
+Studio vs Free
+Tính năng	Studio	Free
+Search SFX	✓	✓
+Smart Search Việt / Anh	✓	✓
+Preview	✓	✓
+Waveform	✓	✓
+Favorites / Recent	✓	✓
+Tags / Metadata	✓	✓
+Library Management	✓	✓
+Backup / Restore	✓	✓
+Drag & Drop	✓	✓
+Insert at Playhead	✓	—
+Chọn Audio Track tự động	✓	—
+Tìm track trống	✓	—
+Điều khiển Timeline qua Integration	✓	—
+Workflow Integration	✓	—
+Companion App	—	✓
+
+
+Dữ liệu & quyền riêng tư
+HNH SFX Finder được thiết kế theo hướng Local First.
+Thư viện SFX, index, waveform và dữ liệu quản lý được xử lý trên máy.
+Bạn không cần upload thư viện SFX cá nhân lên cloud để sử dụng các chức năng tìm kiếm cơ bản của HNH SFX Finder.
+Roadmap
+Mục tiêu tiếp theo của HNH SFX Finder là phát triển từ một SFX Browser thành một SFX Assistant.
+Hướng phát triển:
+Timeline
+   ↓
+Detect Cut / Transition / Event
+   ↓
+Classify
+   ↓
+Suggest SFX
+   ↓
+Preview
+   ↓
+Insert
+
+Một số hướng đang nghiên cứu:
+- Timeline-aware SFX suggestions.
+- Gợi ý Whoosh theo cut / transition.
+- Gợi ý Impact cho hard cut.
+- Gợi ý Riser / Downer cho transition.
+- Gợi ý Pop / Click cho text và UI.
+- Intensity: Soft / Medium / Hard.
+- Style: Clean / Cinematic / Funny.
+- Smart semantic ranking.
+- Local-first processing.
+Các tính năng trong Roadmap chưa được coi là tính năng chính thức cho tới khi xuất hiện trong bản release.
+Báo lỗi & góp ý
+Nếu gặp lỗi, vui lòng cung cấp:
+HNH SFX Finder version:
+DaVinci Resolve version:
+Free / Studio:
+Windows / macOS:
+Mô tả lỗi:
+Ảnh hoặc video lỗi:
+
+Thông tin này giúp việc kiểm tra và sửa lỗi nhanh hơn.
