@@ -1,5 +1,15 @@
 # HNH SFX Finder
 
+> ## 📢 Dự án đã chuyển sang MRM
+> HNH SFX Finder giờ là một phần của **MRM — Media Resource Manager** (plugin DaVinci + ứng dụng quản lý tài nguyên dựng).
+> Bản mới, hướng dẫn và báo lỗi: **https://github.com/dmina97-cpu/mrm-media-resource-manager**
+>
+> Repo này **không còn cập nhật**. Bản cuối: [v0.12.2](../../releases/latest) — kèm hướng dẫn chuyển sang plugin mới và xóa plugin cũ.
+>
+> *Nội dung bên dưới là tài liệu của bản cũ (0.10.x), giữ lại để tham khảo.*
+
+---
+
 **Local SFX Browser & Workflow Tool for DaVinci Resolve**
 <img width="1020" height="806" alt="image" src="https://github.com/user-attachments/assets/2046c6b2-2347-4115-84b9-993d007d3161" />
 
